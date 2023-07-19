@@ -1,18 +1,12 @@
 <?php
 require_once ('../config.php');
+require_once ('connectDatabase.php');
 
 function getEventData($employee_name='',$event_name='',$event_date = '')
 {
-    // initialize database
-    global $database;
 
-    // connect to database with PDO
-
-    try {
-        $db = new PDO("mysql:host={$database['host']};dbname={$database['dbname']}", $database['user'], $database['pass']);
-    } catch (PDOException $e) {
-        die("An error happend, Error: " . $e->getMessage());
-    }
+    // connect to database
+    $db = connectDataBase();
 
     // sql code with each field check
 
@@ -24,9 +18,7 @@ function getEventData($employee_name='',$event_name='',$event_date = '')
         $sql = $sql." AND event_name Like "."'%".$event_name."%'";
     }
     if($event_date != ''){
-        if(strpos($event_date, '/') !== false) {
-            $event_date = explode('/', $event_date)[2] . '-' . explode('/', $event_date)[0] . '-' . explode('/', $event_date)[1];
-        }
+        $event_date = date("Y-m-d", strtotime($event_date));
         $sql = $sql." AND event_date = "."'".$event_date."'";
     }
     $result  = $db->query($sql);
@@ -35,16 +27,8 @@ function getEventData($employee_name='',$event_name='',$event_date = '')
 
 function insertEventData($jsonData)
 {
-    // initialize database
-    global $database;
-
-    // connect to database with PDO
-
-    try {
-        $db = new PDO("mysql:host={$database['host']};dbname={$database['dbname']}", $database['user'], $database['pass']);
-    } catch (PDOException $e) {
-        die("An error happend, Error: " . $e->getMessage());
-    }
+    // connect to database
+    $db = connectDataBase();
 
     // sql query & submit data
 

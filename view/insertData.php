@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>event book - insert Json Event</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../assets/image/rexx_logo.svg">
 
 </head>
 <body>

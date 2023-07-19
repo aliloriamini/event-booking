@@ -31,9 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>event book - report event</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <meta charset="UTF-8">
-
+    <link rel="icon" type="image/x-icon" href="../assets/image/rexx_logo.svg">
 </head>
 <body>
 
@@ -147,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <script src="javascript/jquery-3.3.1.min.js"></script>
-<script src="javascript/gijgo.min.js" type="text/javascript"></script>
+<script src="javascript/datepicker.min.js" type="text/javascript"></script>
 
 <script>
     $('#datepicker').datepicker({
